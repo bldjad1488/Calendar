@@ -201,7 +201,7 @@ extension CalendarView {
     private func drawLines() {
         var num = marginFromLeading
         
-        for i in 0..<12 {
+        for _ in 0..<12 {
             let path = UIBezierPath()
             path.move(to: CGPoint(x: num, y: 40))
             path.addLine(to: CGPoint(x: num, y: 235 + 25))
