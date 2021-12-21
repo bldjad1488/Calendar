@@ -5,10 +5,18 @@
 //  Created by Polina Prokopenko on 12/18/21.
 //
 
+import UIKit
+
+
+typealias Calendar = [BookedTime]
 
 struct BookedTime {
     
-    let start: UInt8
-    let end: UInt8
+    let start: Int
+    let end: Int
+    
+    func makeArray() -> [Int] {
+        return Set(start...end).sorted { $0 < $1 }
+    }
     
 }
