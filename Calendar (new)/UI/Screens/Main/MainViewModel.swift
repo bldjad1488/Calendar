@@ -23,7 +23,7 @@ class MainViewModel {
     ]
     
     func calculateBookedTime(_ first: Calendar, _ second: Calendar) -> (first: [[Int]], second: [[Int]]) {
-        var resultSet = [[Int]]()
+        var resultSet    = [[Int]]()
         var resultSetTwo = [[Int]]()
         
         for item in first {
@@ -46,10 +46,10 @@ class MainViewModel {
     
     
     func getFreeTime(_ bookedTime: [[Int]]) -> [[Int]] {
-        let count = bookedTime.count
+        let count               = bookedTime.count
         let presortedBookedTime = bookedTime.sorted(by: { $0.first! < $1.first! })
-        var sorted = [[Int]]()
-        var freeTime = [[Int]]()
+        var sorted              = [[Int]]()
+        var freeTime            = [[Int]]()
         
         // Remove unnecessary intervals from the array
         for i in 0..<count {
@@ -109,7 +109,7 @@ class MainViewModel {
         
         // Delete elements with count equal 1 or less
         var stepper = 0
-        var count1 = freeTime.count - 1
+        var count1  = freeTime.count - 1
         
         while stepper <= count1 {
             if freeTime[stepper].count < 2 || freeTime[stepper].count == 1{

@@ -13,8 +13,8 @@ class CalendarView: UIView {
     
     // MARK: Values
     // Need for positioning background lines and labels
-    var marginFromLeading = 150
-    var spaceBetweenLines = 80
+    var marginFromLeading   = 150
+    var spaceBetweenLines   = 80
     var spacingBetweenSlots = 5
     
     override func draw(_ rect: CGRect) {
@@ -23,7 +23,7 @@ class CalendarView: UIView {
     
     init() {
         let height = 275
-        let width = marginFromLeading + (spaceBetweenLines * 12) + 20
+        let width  = marginFromLeading + (spaceBetweenLines * 12) + 20
         
         super.init(frame: CGRect(x: 0, y: 50, width: width, height: height))
         
@@ -44,12 +44,12 @@ class CalendarView: UIView {
 extension CalendarView {
     
     func render(
-        firstBookedTime: [[Int]],
+        firstBookedTime:  [[Int]],
         secondBookedTime: [[Int]],
-        firstFreeTime: [[Int]],
-        secondFreeTime: [[Int]],
-        bookedForBoth: [[Int]],
-        freeForBoth: [[Int]]) {
+        firstFreeTime:    [[Int]],
+        secondFreeTime:   [[Int]],
+        bookedForBoth:    [[Int]],
+        freeForBoth:      [[Int]]) {
         
             for item in firstBookedTime {
                 if let start = item.first, let end = item.last {
@@ -86,31 +86,6 @@ extension CalendarView {
                     drawTimeSlot(position: 2, start: start, end: end, type: .freeForBoth)
                 }
             }
-    }
-    
-    func renderExample() {
-        for item in MainViewModel().aliceCalendar {
-            drawTimeSlot(position: 0, start: item.start, end: item.end, type: .alice)
-        }
-        
-        for item in MainViewModel().bobCalendar {
-            drawTimeSlot(position: 1, start: item.start, end: item.end, type: .bob)
-        }
-        
-        drawTimeSlot(position: 0, start: 13, end: 15, type: .freeForPerson)
-        drawTimeSlot(position: 0, start: 17, end: 20, type: .freeForPerson)
-        
-        drawTimeSlot(position: 1, start: 12, end: 15, type: .freeForPerson)
-        drawTimeSlot(position: 1, start: 16, end: 18, type: .freeForPerson)
-        drawTimeSlot(position: 1, start: 19, end: 20, type: .freeForPerson)
-        
-        drawTimeSlot(position: 2, start: 9, end: 13, type: .bookedForBoth)
-        drawTimeSlot(position: 2, start: 13, end: 14, type: .freeForBoth)
-        drawTimeSlot(position: 2, start: 14, end: 15, type: .freeForBoth)
-        drawTimeSlot(position: 2, start: 15, end: 17, type: .bookedForBoth)
-        drawTimeSlot(position: 2, start: 17, end: 18, type: .freeForBoth)
-        drawTimeSlot(position: 2, start: 18, end: 19, type: .bookedForBoth)
-        drawTimeSlot(position: 2, start: 19, end: 20, type: .freeForBoth)
     }
     
 }
@@ -228,9 +203,9 @@ extension CalendarView {
                 textForLabel = "\(i)"
             }
             
-            let label = UILabel(frame: CGRect(x: num - 15, y: 10, width: 30, height: 20))
-            label.textColor = UIColor(named: "ColorGray")!
-            label.text = textForLabel
+            let label           = UILabel(frame: CGRect(x: num - 15, y: 10, width: 30, height: 20))
+            label.textColor     = UIColor(named: "ColorGray")!
+            label.text          = textForLabel
             label.textAlignment = .center
             
             addSubview(label)

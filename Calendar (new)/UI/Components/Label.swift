@@ -13,9 +13,9 @@ class Label: UILabel {
     init(_ text: String, color: UIColor, frame: CGRect) {
         super.init(frame: frame)
         
-        self.text = text
+        self.text     = text
         textAlignment = .center
-        textColor = color
+        textColor     = color
         numberOfLines = 0
     }
     

@@ -46,18 +46,21 @@ class MainView: UIViewController {
 extension MainView {
     
     func prepareCalendarView() {
-        let bookedTime = viewModel.calculateBookedTime(viewModel.aliceCalendar, viewModel.bobCalendar)
-        let freeTime   = viewModel.getFreeTimeForPersons(bookedTime)
-        let bookedTimeForBoth = viewModel.getBookedTimeForBoth(bookedTime)
+        let bookedTime           = viewModel.calculateBookedTime(
+            viewModel.aliceCalendar,
+            viewModel.bobCalendar
+        )
+        let freeTime             = viewModel.getFreeTimeForPersons(bookedTime)
+        let bookedTimeForBoth    = viewModel.getBookedTimeForBoth(bookedTime)
         let trulyFreeTimeForBoth = viewModel.getFreeTimeForBoth(bookedTimeForBoth)
         
         calendarView.render(
-            firstBookedTime: bookedTime.first,
+            firstBookedTime:  bookedTime.first,
             secondBookedTime: bookedTime.second,
-            firstFreeTime: freeTime.first,
-            secondFreeTime: freeTime.second,
-            bookedForBoth: bookedTimeForBoth,
-            freeForBoth: trulyFreeTimeForBoth
+            firstFreeTime:    freeTime.first,
+            secondFreeTime:   freeTime.second,
+            bookedForBoth:    bookedTimeForBoth,
+            freeForBoth:      trulyFreeTimeForBoth
         )
     }
     
